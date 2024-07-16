@@ -1,72 +1,19 @@
 import random
-
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+import hangman_words, hangman_art
 
 end_of_game = False
-word_list = ["ardvark", "baboon", "camel"]
+word_list = hangman_words.word_list
 chosen_word = random.choice(word_list)
-life = 6
+stages = hangman_art.stages
+logo = hangman_art.logo
+
 #TODO-1: - Create a variable called 'lives' to keep track of the number of lives left. 
 #Set 'lives' to equal 6.
+life = 6
 guessed_word = set()
 
 #Testing code
-print(f'Pssst, the solution is {chosen_word}.')
+print(logo)
 
 #Create blanks
 display = []
@@ -78,7 +25,6 @@ while not end_of_game:
 
     #Check guessed letter
     for position, letter in enumerate(chosen_word):
-        # print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
         if letter == guess:
             display[position] = letter
         
